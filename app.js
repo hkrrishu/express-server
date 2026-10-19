@@ -2,12 +2,14 @@ const express = require("express");
 
 const app = express();
 
-const orderRouter = require("./routes/orders");
-const userRouter = require("./routes/users");
+const booksRouter = require("./routes/books");
 
-app.use("/orders", orderRouter);
-app.use("/users", userRouter);
+// To read JSON data sent in the request
+app.use(express.json());
 
-app.listen(3000, () => {
-  console.log("Server is running on port 3000");
+// Connect the books router
+app.use("/books", booksRouter);
+
+app.listen(4000, () => {
+  console.log("Server is running on port 4000");
 });
